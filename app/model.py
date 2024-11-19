@@ -149,6 +149,7 @@ class OrderItem(db.Model):
             "updated_at": self.updated_at
         }
 
+#Transaction model
 class Transaction(db.Model):
     __tablename__ = 'transactions'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
