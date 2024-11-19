@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "fb6db28ed43efe63f4ea7c705991615f3912cde31109ce73e403fa705d7fdf22"
+            "sha256": "904f0aa896a598e1f933e569109b68bdf146b764c600aba316a498be4ac839fc"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -104,12 +104,12 @@
         },
         "flask-jwt-extended": {
             "hashes": [
-                "sha256:63a28fc9731bcc6c4b8815b6f954b5904caa534fc2ae9b93b1d3ef12930dca95",
-                "sha256:9215d05a9413d3855764bcd67035e75819d23af2fafb6b55197eb5a3313fdfb2"
+                "sha256:4d8939ca006c92209fad82e591471db897f33b6a85561f8e792c5aa6816ef39c",
+                "sha256:be5785e2e3ef4d8773ba6d10247e78827dcf0b111efbfcd7a0794b5f7c750d90"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.7' and python_version < '4'",
-            "version": "==4.6.0"
+            "markers": "python_version >= '3.9' and python_version < '4'",
+            "version": "==4.7.0"
         },
         "flask-migrate": {
             "hashes": [
@@ -193,6 +193,15 @@
             "index": "pypi",
             "markers": "python_version >= '3.7'",
             "version": "==3.0.3"
+        },
+        "gunicorn": {
+            "hashes": [
+                "sha256:ec400d38950de4dfd418cff8328b2c8faed0edb0d517d3394e457c317908ca4d",
+                "sha256:f014447a0101dc57e294f6c18ca6b40227a4c90e9bdb586042628030cba004ec"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.7'",
+            "version": "==23.0.0"
         },
         "itsdangerous": {
             "hashes": [
@@ -287,6 +296,14 @@
             "index": "pypi",
             "markers": "python_version >= '3.7'",
             "version": "==2.1.5"
+        },
+        "packaging": {
+            "hashes": [
+                "sha256:09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759",
+                "sha256:c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==24.2"
         },
         "psycopg2-binary": {
             "hashes": [
