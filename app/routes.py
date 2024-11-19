@@ -476,3 +476,24 @@ def create_supplier():
     db.session.add(new_supplier)  # Add the supplier to the database
     db.session.commit()  # Commit the transaction to save the supplier
     return jsonify(new_supplier.to_dict()), 201  # Return the new supplier
+
+# Update an existing supplier
+@main_bp.route('/suppliers/<int:supplier_id>', methods=['PUT'])
+# @jwt_required()
+def update_supplier(supplier_id):
+    supplier = Supplier.query.get_or_404(supplier_id)  # Get supplier or 404 if not found
+    data = request.get_json()  # Get the data from the request body
+    supplier.name = data.get('name', supplier.name)
+    supplier.contact_info = data.get('contact_info', supplier.contact_info)
+    supplier.address = data.get('address', supplier.address)
+    db.session.commit()  # Commit the changes
+    return jsonify(supplier.to_dict())  # Return the updated supplier
+
+# Delete a supplier
+@main_bp.route('/suppliers/<int:supplier_id>', methods=['DELETE'])
+@jwt_required()
+def delete_supplier(supplier_id):
+    supplier = Supplier.query.get_or_404(supplier_id)  # Get supplier or 404 if not found
+    db.session.delete(supplier)  # Delete the supplier
+    db.session.commit()  # Commit the changes
+    return jsonify({"message": "Supplier deleted successfully"}), 200
