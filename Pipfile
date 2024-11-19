@@ -24,6 +24,7 @@ pyjwt = "==2.9.0"
 sqlalchemy = "==2.0.32"
 typing-extensions = "==4.12.2"
 werkzeug = "==3.0.3"
+gunicorn = "*"
 
 [dev-packages]
 
