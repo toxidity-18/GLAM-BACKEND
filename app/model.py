@@ -1,5 +1,11 @@
 from . import db
 from datetime import datetime
+from enum import Enum
+
+class OrderStatus(Enum):
+    PENDING = "Pending"
+    SHIPPED = "Shipped"
+    DELIVERED = "Delivered"
 
 # User model
 class User(db.Model):
@@ -98,7 +104,7 @@ class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.uid'), nullable=False)
     total_amount = db.Column(db.Numeric(10, 2), nullable=False)
-    status = db.Column(db.Enum('Pending', 'Shipped', 'Delivered'), nullable=False)
+    status = db.Column(db.Enum(OrderStatus), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
@@ -203,14 +209,14 @@ class Transaction(db.Model):
 class Cart(db.Model):
     __tablename__ = 'carts'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.uid'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.uid'), nullable=False)  # Ensure correct data type
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-    user = db.relationship('User', backref='cart')
-    product = db.relationship('Product', backref='cart_items')
+    user = db.relationship('User', backref='carts')
+    product = db.relationship('Product', backref='carts')
 
     def to_dict(self):
         return {
